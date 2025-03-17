@@ -153,7 +153,7 @@ Si todo está bien, accede en tu navegador a:
 
 ---
 
-## **🚀 Comandos útiles**  
+## **Comandos útiles**  
 
 | Acción | Comando |
 |--------|---------|
