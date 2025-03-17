@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crear SAN{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Crear un nuevo SAN</h2>
+        </div>
+        <div class="card-body">
+            <!-- Formulario -->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre del SAN</label>
+                    {{ form.name }}
+                </div>
+                
+                <div class="mb-3">
+                    <label for="organizador" class="form-label">Organizador</label>
+                    {{ form.organizador }}
+                </div>
+                
+                <div class="mb-3">
+                    <label for="fecha_inicio" class="form-label">Fecha de Inicio</label>
+                    {{ form.fecha_inicio }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="total_price" class="form-label">Precio Total</label>
+                    {{ form.total_price }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="num_cuotas" class="form-label">Número de Cuotas</label>
+                    {{ form.num_cuotas }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="payment_frequency" class="form-label">Frecuencia de Pago</label>
+                    {{ form.payment_frequency }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="type_of_san" class="form-label">Tipo de SAN</label>
+                    {{ form.type_of_san }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Imagen del Producto</label>
+                    {{ form.image }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="total_participantes" class="form-label">Total de Participantes</label>
+                    {{ form.total_participantes }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Crear SAN</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
