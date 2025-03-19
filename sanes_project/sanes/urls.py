@@ -9,6 +9,7 @@ from django.conf.urls.static import static
 from .views import logout_view
 from .views import login_view
 from .views import mis_sanes, cuotas_san, confirm_purchase
+from .views import SanList, CupoList
 
 urlpatterns = [
     path('sanes/', views.san_list, name='san_list'),
@@ -25,6 +26,9 @@ urlpatterns = [
     path('cuotas_san/<int:san_id>/', cuotas_san, name='cuotas_san'),  # Nueva URL para cuotas_san
     path('enviar-recordatorio/<int:usuario_id>/', views.enviar_recordatorio_view, name='enviar_recordatorio'),
     path('', views.home, name='home'),  # Ruta vacía, apunta a la vista 'home'
+    path("", views.api_home, name="api_home"),  # Endpoint base de la API
+    path('api/sans/', SanList.as_view(), name='san-list'),
+    path('api/cupos/', CupoList.as_view(), name='cupo-list'),
 ]
 
 if settings.DEBUG:

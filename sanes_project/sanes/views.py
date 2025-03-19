@@ -25,7 +25,7 @@ from .forms import CustomLoginForm
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import user_passes_test
-from .forms import CustomLoginForm  # Asegúrate de que estás importando tu formulario
+from .forms import CustomLoginForm  # Formulario customizado
 from .models import Participacion
 from datetime import date
 from django.shortcuts import render, get_object_or_404, redirect
@@ -35,8 +35,15 @@ from .forms import ConfirmPurchaseForm
 from datetime import date
 from django.http import HttpResponse
 from django.http import HttpResponse
-from django.contrib.auth.models import User  # Asegúrate de importar User
+from django.contrib.auth.models import User  # User customizado
 from .models import Participacion  # Importa el modelo necesario
+from django.http import JsonResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import San
+from .serializers import SanSerializer
+from .models import Cupo
+from .serializers import CupoSerializer
 
 def user_is_not_authenticated(user):
     return not user.is_authenticated
@@ -589,3 +596,18 @@ def enviar_recordatorio_view(request, usuario_id):
     
     # Devolver una respuesta
     return HttpResponse(f"Recordatorio enviado a {usuario.username} con éxito a {usuario.userprofile.telefono}.")
+
+def api_home(request):
+    return JsonResponse({"message": "Bienvenido a la API de Django"}, safe=False)
+
+class SanList(APIView):
+    def get(self, request):
+        san_list = San.objects.all()
+        serializer = SanSerializer(san_list, many=True)
+        return Response(serializer.data)
+    
+class CupoList(APIView):
+    def get(self, request):
+        cupo_list = Cupo.objects.all()
+        serializer = CupoSerializer(cupo_list, many=True)
+        return Response(serializer.data)
