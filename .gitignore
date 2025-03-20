@@ -20,3 +20,6 @@ app_project_sanes/node_modules/
 node_modules/
 
 sanes_project/node_modules/
+
+!app_project_sanes/android/build/
+!app_project_sanes
