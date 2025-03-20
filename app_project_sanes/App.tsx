@@ -137,7 +137,7 @@ import { WebView } from 'react-native-webview';
 const App = () => {
   return (
     <View style={styles.container}>
-      <WebView source={{ uri: 'http://192.168.1.103:8000/sanes/' }} />
+      <WebView source={{ uri: 'http://192.168.1.106:8000/sanes/' }} />
     </View>
   );
 };
