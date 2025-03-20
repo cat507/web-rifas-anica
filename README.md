@@ -3,6 +3,10 @@ Proyecto basado en **Django** con **MySQL** como base de datos.
 
 ---
 
+## Documentación
+
+- [Instrucciones para la App Móvil](./README-APP.md)
+
 ## **📌 Requisitos previos**
 Antes de empezar, asegúrate de tener instalado:  
 ✅ **Python** (versión 3.10 o superior)  
